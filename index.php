@@ -32,7 +32,7 @@ $note_count = count($notes);
     <div class="container">
 
         <div class="header">
-            <h1>📓 My Notes</h1>
+            <h1>Notepad</h1>
             <p class="note-count">Total: <?php echo $note_count; ?> note(s)</p>
             <a href="create.php" class="btn btn-primary">+ New Note</a>
         </div>
@@ -40,7 +40,7 @@ $note_count = count($notes);
         <!-- Show message if no notes exist -->
         <?php if ($note_count === 0): ?>
             <div class="empty-state">
-                <p>📭 No notes yet. Create your first note!</p>
+                <p>No notes yet. Create your first note!</p>
                 <a href="create.php" class="btn btn-primary">Create First Note</a>
             </div>
         <?php else: ?>

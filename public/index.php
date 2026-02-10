@@ -1,6 +1,6 @@
 <?php
 
-include('db.php');
+require __DIR__ . '/../config/db.php';
 
 // Fetch all notes from database, ordered by newest first
 $sql = "SELECT * FROM notes ORDER BY created_at DESC";
@@ -26,7 +26,7 @@ $note_count = count($notes);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Notes - Notes App</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/app/style.css">
 </head>
 <body>
     <div class="container">
@@ -34,14 +34,14 @@ $note_count = count($notes);
         <div class="header">
             <h1>Notepad</h1>
             <p class="note-count">Total: <?php echo $note_count; ?> note(s)</p>
-            <a href="create.php" class="btn btn-primary">+ New Note</a>
+            <a href="/app/create.php" class="btn btn-primary">+ New Note</a>
         </div>
         
         <!-- Show message if no notes exist -->
         <?php if ($note_count === 0): ?>
             <div class="empty-state">
                 <p>No notes yet. Create your first note!</p>
-                <a href="create.php" class="btn btn-primary">Create First Note</a>
+                <a href="/app/create.php" class="btn btn-primary">Create First Note</a>
             </div>
         <?php else: ?>
 
@@ -69,11 +69,11 @@ $note_count = count($notes);
                         
                         <!-- Buttons -->
                         <div class="note-actions">
-                            <a href="edit.php?id=<?php echo $note['id']; ?>" class="btn btn-secondary">
+                            <a href="/app/edit.php?id=<?php echo $note['id']; ?>" class="btn btn-secondary">
                                 Edit
                             </a>
 
-                            <a href="delete.php?id=<?php echo $note['id']; ?>" class="btn btn-danger" 
+                                     <a href="/app/delete.php?id=<?php echo $note['id']; ?>" class="btn btn-danger" 
                                onclick="return confirm('Delete this note?');">
                                 Delete
                             </a>

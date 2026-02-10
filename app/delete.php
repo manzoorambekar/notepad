@@ -1,5 +1,5 @@
 <?php
-include('db.php');
+require __DIR__ . '/../config/db.php';
 
 // Get note ID from URL parameter
 $note_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
@@ -13,7 +13,7 @@ $sql = "DELETE FROM notes WHERE id = $note_id";
 
     // Note deleted successfully, redirect to index
 if ($conn->query($sql) === TRUE) {
-    header("Location: index.php");
+    header("Location: /public/index.php");
     exit();
 } else {
     die("Error deleting note: " . $conn->error);

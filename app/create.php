@@ -1,5 +1,5 @@
 <?php
-include('db.php');
+require __DIR__ . '/../config/db.php';
 
 // Initialize variables
 $error = '';
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $success = "Note created successfully!";
 
             // Redirect to home page after 1 second
-            header("refresh:1;url=index.php");
+            header("refresh:1;url=/public/index.php");
 
         } else {
             $error = "Error creating note: " . $conn->error;
@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Note - Notes App</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/app/style.css">
 </head>
 <body>
     <div class="container">
@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 
                 <div class="form-actions">
                     <button type="submit" class="btn btn-primary">💾 Save Note</button>
-                    <a href="index.php" class="btn btn-secondary">← Back to Notes</a>
+                    <a href="/public/index.php" class="btn btn-secondary">← Back to Notes</a>
                 </div>
             </form>
         </div>
